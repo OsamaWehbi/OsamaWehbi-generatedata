@@ -32,7 +32,6 @@ logger.info('Generating Data --Started')
 trainers_train = Dict()
 test_data = Dict()
 
-
 def poison(dc: DataContainer, rate):
     total_size = len(dc)
     poison_size = int(total_size * rate)
