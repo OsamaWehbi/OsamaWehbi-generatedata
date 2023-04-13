@@ -56,9 +56,11 @@ def create_model(name):
     if name == 'resnet':
         return resnet56(10, 3, 32)
     else:
-        global client_data
+        global trainers_train
+        global test_data
         # cifar10 data reduced to 1 dimension from 32,32,3. cnn32 model requires the image shape to be 3,32,32
-        client_data = client_data.map(lambdas.reshape((-1, 32, 32, 3))).map(lambdas.transpose((0, 3, 1, 2)))
+        trainers_train = trainers_train.map(lambdas.reshape((-1, 32, 32, 3))).map(lambdas.transpose((0, 3, 1, 2)))
+        test_data = test_data.map(lambdas.reshape((-1, 32, 32, 3))).map(lambdas.transpose((0, 3, 1, 2)))
         return libs.model.cv.cnn.Cifar10Model()
 
 
