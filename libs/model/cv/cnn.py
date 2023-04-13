@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from torch.autograd.grad_mode import F
+# from torch.autograd.grad_mode import F
 
 
 class Cnn1D(nn.Module):
