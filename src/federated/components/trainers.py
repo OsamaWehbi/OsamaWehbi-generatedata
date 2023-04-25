@@ -12,7 +12,6 @@ from src.federated.protocols import Trainer, TrainerParams
 class TorchTrainer(Trainer):
     def __init__(self):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
     def train(self, model: nn.Module, train_data: DataContainer, context: FederatedLearning.Context,
               config: TrainerParams) -> Tuple[any, int]:
         model.to(self.device)
